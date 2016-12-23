@@ -1,0 +1,1 @@
+package.json 中包含的scripts 里面的内容，可以通过npm run +"索引名字" 进行运行
