@@ -16,4 +16,60 @@
 6.用冒号（:）绑定属性，这里是动态绑定的意思。
 	比如option的标签中，:value就是绑定option标签的value值， 这样获取到的值就是绑定的值了，本身的值就是text了
 
-7.待续...
+7.父组件传递消息给子组件
+这里给出简单的例子：
+在父组件中:
+...
+<child-component :title="title"></child-component>//这里的:title是传递到子组件内的属性，而title是父组件数据
+...
+data(){
+	return {
+		title:"rengjia"
+	}
+}
+...
+在子组件中:
+<h1>{{title}}</h1>
+...
+props:{
+	title:{//可以在里面设置默认值
+		type:String
+	}
+}
+...
+
+8.子组件向父组件传递消息
+这里给出简单的例子:
+在父组件中:
+...
+<child-component v-on:child-say="listenToMyChild"></child-component>
+<p>{{msg}}</p>
+...
+data(){
+		return{
+			msg:''
+		}
+},
+methods:{
+	listenToMyChild(data){
+		this.msg=data;
+	}
+}
+...
+在子组件中：
+...
+<button @click="toParent"></button>
+...
+data(){
+	return {
+		message:"this is the child message";
+	}
+},
+methods:{
+	toParent(){
+		this.$emit("child-say",this.message);
+	}
+}
+...
+
+9.未完待续...
