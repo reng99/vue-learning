@@ -16,60 +16,60 @@
 6.用冒号（:）绑定属性，这里是动态绑定的意思。
 	比如option的标签中，:value就是绑定option标签的value值， 这样获取到的值就是绑定的值了，本身的值就是text了
 
-7.父组件传递消息给子组件
-这里给出简单的例子：
-在父组件中:
-...
-<child-component :title="title"></child-component>//这里的:title是传递到子组件内的属性，而title是父组件数据
-...
-data(){
-	return {
-		title:"rengjia"
-	}
-}
-...
-在子组件中:
-<h1>{{title}}</h1>
-...
-props:{
-	title:{//可以在里面设置默认值
-		type:String
-	}
-}
-...
+7.父组件传递消息给子组件<br/>
+这里给出简单的例子：<br/>
+在父组件中:<br/>
+...<br/>
+`<child-component :title="title"></child-component>`//这里的:title是传递到子组件内的属性，而title是父组件数据<br/>
+...<br/>
+data(){<br/>
+	return {<br/>
+		title:"rengjia"<br/>
+	}<br/>
+}<br/>
+...<br/>
+在子组件中:<br/>
+`<h1>{{title}}</h1>`<br/>
+...<br/>
+props:{<br/>
+	title:{//可以在里面设置默认值<br/>
+		type:String<br/>
+	}<br/>
+}<br/>
+...<br/>
 
-8.子组件向父组件传递消息
-这里给出简单的例子:
-在父组件中:
-...
-<child-component v-on:child-say="listenToMyChild"></child-component>
-<p>{{msg}}</p>
-...
-data(){
-		return{
-			msg:''
-		}
-},
-methods:{
-	listenToMyChild(data){
-		this.msg=data;
-	}
-}
-...
-在子组件中：
-...
-<button @click="toParent"></button>
-...
-data(){
-	return {
-		message:"this is the child message";
-	}
-},
-methods:{
-	toParent(){
-		this.$emit("child-say",this.message);
-	}
-}
-...
+8.子组件向父组件传递消息<br/>
+这里给出简单的例子:<br/>
+在父组件中:<br/>
+...<br/>
+`<child-component v-on:child-say="listenToMyChild"></child-component>`<br/>
+`<p>{{msg}}</p>`<br/>
+...<br/>
+data(){<br/>
+		return{<br/>
+			msg:''<br/>
+		}<br/>
+},<br/>
+methods:{<br/>
+	listenToMyChild(data){<br/>
+		this.msg=data;<br/>
+	}<br/>
+}<br/>
+...<br/>
+在子组件中：<br/>
+...<br/>
+`<button @click="toParent"></button>`<br/>
+...<br/>
+data(){<br/>
+	return {<br/>
+		message:"this is the child message";<br/>
+	}<br/>
+},<br/>
+methods:{<br/>
+	toParent(){<br/>
+		this.$emit("child-say",this.message);<br/>
+	}<br/>
+}<br/>
+...<br/>
 
 9.未完待续...
