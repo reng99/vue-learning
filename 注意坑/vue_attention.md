@@ -1,6 +1,7 @@
 ### 下面是自己在使用vue开发的过程中遇到的问题
 
 - [使用vue.nextTick](https://cn.vuejs.org/v2/api/#Vue-nextTick)
+
 在框架中和其他技术，比如`webpack`一起使用的时候，应当这样使用`this.$nextTick(function(){})`，这里的this就是vue对象`vm`
 使用这个钩子事件，能够保证在dom更新完之后对页面进行操作
 ```bash 
@@ -9,13 +10,20 @@
 在定义的事件里面进行的时候是有效的
 
 ```
+
+
 - [使用created钩子](https://cn.vuejs.org/v2/api/#created)
+
 这是创建完成的钩子事件，在这个钩子事件中实现对dom的操作，顾名思义，在这里是dom已经被创建出来了
 
+
 - [使用mounted钩子](https://cn.vuejs.org/v2/api/#mounted)
+
 这是挂载完成的钩子事件，在这个钩子事件中，可以使用在`index.html`中引入的各种资源，比如.css,.js。
 
+
 - [使用v-model](https://cn.vuejs.org/v2/guide/forms.html#v-model-与组件)
+
 在使用v-model的时候，需要在data中进行初始化，而这个v-model是对表单进行使用。
 ```bash
 
@@ -32,10 +40,14 @@ eg:
 
 ```
 
+
 - [@change的使用](https://cn.vuejs.org/v2/guide/migration.html#vm-watch-changed)
+
 在使用事件的改变的时候，要使用@change,vue中是没有@select的，所以在使用select的标签的时候需要注意
 
+
 - [使用冒号:绑定属性](https://cn.vuejs.org/v2/api/#v-bind)
+
 使用(:)绑定属性，这里是动态绑定的意思。
 ```bash
 
@@ -43,6 +55,7 @@ eg:
 	在option的标签中，:value就是半丁option标签的value值，这样获取到的值就是绑定的值，本省的值就是text了。
 
 ```
+
 
 - [父组件传递消息给子组件](#parentToChild)
 
@@ -76,6 +89,7 @@ eg:
 		}
 
 ```
+
 
 - [子组件向父组件传递消息](#childToParent)
 
@@ -121,11 +135,15 @@ eg:
 
 ```
 
+
 - [watch使用](https://cn.vuejs.org/v2/guide/transitioning-state.html#状态动画-与-watcher)
+
 watch是用来观察属性的变化
 watch一般是用于观察计算属性产生的变化
 
+
 - [类名和style的使用](https://cn.vuejs.org/v2/guide/class-and-style.html#main)
+
 类名和style的使用一般用于动态改变样式，所以也要用到绑定属性。下面给出个简单的例子
 ```bash
 eg:
@@ -155,7 +173,10 @@ eg:
 
 ```
 
-- [style中scoped的讲解]
+
+- [style中scoped的讲解](#style)
+
+<a id="style"></a>
 在style中般都会加上scoped来限制当前组将中样式名，防止发生样式名发生冲突。
 ```bash
 eg:
@@ -182,6 +203,7 @@ eg:
 //执行上面的两个组件，虽然组件里面都有相同的id为reng,但是她们互不影响，这就是添加scoped的好处。
 
 ```
+
 
 - [未完待续...]
 
