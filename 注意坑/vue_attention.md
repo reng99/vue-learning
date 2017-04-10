@@ -205,7 +205,54 @@ eg:
 ```
 
 
-- [未完待续...]
+- [注意代码的简化](#simple)
+
+<a id="simple"></a>
+```bash
+
+eg：
+	error-example:
+	template中
+	<button @click="showTemplate(arg0,arg1,arg2,arg3)"></button>
+	<div>{{tinyName.join("  / ")}}</div>
+	script中
+	data(){
+		return{
+			tinyName:[]
+		}
+	}
+	methods:{
+		showTemplate(listId,firstLevelName,secondLevelName,assignName){
+			let vm = this;
+			vm.tinyName.push(firstLevelName);
+			vm.tinyName.push(secondLevelName);
+			vm.tinyName.unshift(assignName);
+			...
+		}
+	}
+
+	right-example:
+	template中
+	<button @click="showTemplate(arg0,arg1,arg2,arg3)"></button>
+	<div>{{tinyName.join("  / ")}}</div>
+	script中
+	data(){
+		return{
+			tinyName:[]
+		}
+	}
+	methods:{
+		showTemplate(listId,firstLevelName,secondLevelName,assignName){
+			let vm = this;
+			vm.tinyName=[assignName,firstLevelName,secondLevelName]
+			...
+		}
+	}
+
+```
+
+- [有待补充...]
+
 
 
 
