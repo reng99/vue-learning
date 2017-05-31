@@ -1,6 +1,37 @@
 ### 下面是自己在使用vue开发的过程中遇到的问题
 
-- [使用vue.nextTick](https://cn.vuejs.org/v2/api/#Vue-nextTick)
+- 目录
+
+- [使用vue.nextTick](#nextTick)
+
+- [使用created钩子](#created)
+
+- [使用mounted钩子](#mounted)
+
+- [使用v-model](#vModel)
+
+- [@change的使用](#change)
+
+- [使用冒号:绑定属性](#colon)
+
+- [父组件传递消息给子组件](#pTc)
+
+- [子组件向父组件传递消息](#cTp)
+
+- [watch使用](#watch)
+
+- [类名和style的使用](#classAndStyle)
+
+- [style中scoped的讲解](#scoped)
+
+- [注意代码的简化](#sim)
+
+- [调用vue中的action](#action)
+
+
+
+<a id="nextTick"></a>
+1 [使用vue.nextTick](https://cn.vuejs.org/v2/api/#Vue-nextTick)
 
 在框架中和其他技术，比如`webpack`一起使用的时候，应当这样使用`this.$nextTick(function(){})`，这里的this就是vue对象`vm`
 使用这个钩子事件，能够保证在dom更新完之后对页面进行操作
@@ -12,17 +43,20 @@
 ```
 
 
-- [使用created钩子](https://cn.vuejs.org/v2/api/#created)
+<a id="created"></a>
+2 [使用created钩子](https://cn.vuejs.org/v2/api/#created)
 
 这是创建完成的钩子事件，在这个钩子事件中实现对dom的操作，顾名思义，在这里是dom已经被创建出来了
 
 
-- [使用mounted钩子](https://cn.vuejs.org/v2/api/#mounted)
+<a id="mounted"></a>
+3 [使用mounted钩子](https://cn.vuejs.org/v2/api/#mounted)
 
 这是挂载完成的钩子事件，在这个钩子事件中，可以使用在`index.html`中引入的各种资源，比如.css,.js。
 
 
-- [使用v-model](https://cn.vuejs.org/v2/guide/forms.html#v-model-与组件)
+<a id="vModel"></a>
+4 [使用v-model](https://cn.vuejs.org/v2/guide/forms.html#v-model-与组件)
 
 在使用v-model的时候，需要在data中进行初始化，而这个v-model是对表单进行使用。
 ```bash
@@ -40,13 +74,14 @@ eg:
 
 ```
 
-
-- [@change的使用](https://cn.vuejs.org/v2/guide/migration.html#vm-watch-changed)
+<a id="change"></a>
+5 [@change的使用](https://cn.vuejs.org/v2/guide/migration.html#vm-watch-changed)
 
 在使用事件的改变的时候，要使用@change,vue中是没有@select的，所以在使用select的标签的时候需要注意
 
 
-- [使用冒号:绑定属性](https://cn.vuejs.org/v2/api/#v-bind)
+<a id="colon"></a>
+6 [使用冒号:绑定属性](https://cn.vuejs.org/v2/api/#v-bind)
 
 使用(:)绑定属性，这里是动态绑定的意思。
 ```bash
@@ -57,7 +92,8 @@ eg:
 ```
 
 
-- [父组件传递消息给子组件](#parentToChild)
+<a id="pTc"></a>
+7 [父组件传递消息给子组件](#parentToChild)
 
 <a id="parentToChild"></a>
 这里给出个简单的例子
@@ -91,7 +127,8 @@ eg:
 ```
 
 
-- [子组件向父组件传递消息](#childToParent)
+<a id="cTp"></a>
+8 [子组件向父组件传递消息](#childToParent)
 
 <a id="childToParent"></a>
 这里给出一个简单的例子：
@@ -136,13 +173,15 @@ eg:
 ```
 
 
-- [watch使用](https://cn.vuejs.org/v2/guide/transitioning-state.html#状态动画-与-watcher)
+<a id="watch"></a>
+9 [watch使用](https://cn.vuejs.org/v2/guide/transitioning-state.html#状态动画-与-watcher)
 
 watch是用来观察属性的变化
 watch一般是用于观察计算属性产生的变化
 
 
-- [类名和style的使用](https://cn.vuejs.org/v2/guide/class-and-style.html#main)
+<a id="classAndStyle"></a>
+10 [类名和style的使用](https://cn.vuejs.org/v2/guide/class-and-style.html#main)
 
 类名和style的使用一般用于动态改变样式，所以也要用到绑定属性。下面给出个简单的例子
 ```bash
@@ -174,7 +213,8 @@ eg:
 ```
 
 
-- [style中scoped的讲解](#style)
+<a id="scoped"></a>
+11 [style中scoped的讲解](#style)
 
 <a id="style"></a>
 在style中般都会加上scoped来限制当前组将中样式名，防止发生样式名发生冲突。
@@ -205,7 +245,8 @@ eg:
 ```
 
 
-- [注意代码的简化](#simple)
+<a id="sim"></a>
+12 [注意代码的简化](#simple)
 
 <a id="simple"></a>
 ```bash
@@ -251,7 +292,51 @@ eg：
 
 ```
 
-- [有待补充...]
+<a id="action"></a>
+13 [调用vue中的action]
+
+使用vuex的时候，要调用action里面的数据，先是直接调用action的方法，然后再在state中获取经过处理的数据。
+
+```bash
+
+action.js中
+
+export methodName = function(){
+	...
+}
+
+state.js中
+
+data:{
+	person:{
+		name:'reng',
+		job:'frontend'
+	}
+}
+
+在组件component.vue中
+
+import {methodName} from '/path/to/action.js'
+...
+
+export default{
+	mounted(){
+		methodName();
+	},
+	或者在created中
+	created(){
+		methodName();
+	},
+	computed:{//在计算属性中获取action实现的state中的数据
+		person(){
+		return store.state.data.person;
+	}
+}
+	
+
+```
+
+- [有待补充]
 
 
 
