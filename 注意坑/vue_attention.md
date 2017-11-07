@@ -28,6 +28,8 @@
 
 - [调用vue中的action](#action)
 
+- [router-link添加点击事件注意](#router-link)
+
 
 
 <a id="nextTick"></a>
@@ -333,6 +335,27 @@ export default{
 	}
 }
 	
+
+```
+
+<a id="router-link"></a>
+14.[router-link添加点击事件注意]
+
+开发中，有时候需要在router-link中添加点击事件，可是单纯的添加`@click`事件是没有效果的，因为默认在router-link这里阻止添加的点击事件，要实现自己的点击事件的话，需要这样`@click.native=`,可[参考](https://cn.vuejs.org/v2/guide/components.html#counter-event-example)
+
+举例子如下
+
+```bash
+
+<ul class="row">
+	<li v-for="(list,index) in toolLists" class="col s3 no-padding">
+	<router-link :to="{path:list.url}" class="default-color" @click.native="changeActiveToolbar(index)" :class="{'icon-a-on':list.id==activeToolbar}">
+	  <i :class="list.class"></i>
+	  <span :class="{'main-color':list.id==activeToolbar}">{{list.name}}</span>
+	</router-link>
+	</li>
+</ul>
+
 
 ```
 
