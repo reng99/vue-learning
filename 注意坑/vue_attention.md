@@ -30,6 +30,8 @@
 
 - [router-link添加点击事件注意](#router-link)
 
+- [history model](#historyModel)
+
 
 
 <a id="nextTick"></a>
@@ -339,7 +341,7 @@ export default{
 ```
 
 <a id="router-link"></a>
-14.[router-link添加点击事件注意]
+14 [router-link添加点击事件注意]
 
 开发中，有时候需要在router-link中添加点击事件，可是单纯的添加`@click`事件是没有效果的，因为默认在router-link这里阻止添加的点击事件，要实现自己的点击事件的话，需要这样`@click.native=`,可[参考](https://cn.vuejs.org/v2/guide/components.html#counter-event-example)
 
@@ -358,6 +360,28 @@ export default{
 
 
 ```
+
+<a id="historyModel"></a>
+15 history模式
+
+在创建的router对象中，如果不配置mode，就会使用默认的hash模式，该模式会将路径格式化为#！开头。
+
+添加`mode:'history'`之后将使用html history模式，该模式下没有#前缀，而且可以使用pushState和replaceState来管理记录。
+
+[vue-router 官网介绍](https://router.vuejs.org/zh-cn/essentials/history-mode.html)
+
+```hash
+
+eg:
+
+	const router = new VueRouter({
+		mode: 'history',
+		routes: routers
+	})
+
+
+```
+
 
 - [有待补充]
 
