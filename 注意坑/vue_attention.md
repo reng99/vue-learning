@@ -30,7 +30,9 @@
 
 - [router-link添加点击事件注意](#router-link)
 
-- [history model](#historyModel)
+- [history mode](#historyMode)
+
+- [scrollbehavior]
 
 
 
@@ -361,7 +363,7 @@ export default{
 
 ```
 
-<a id="historyModel"></a>
+<a id="historyMode"></a>
 15 history模式
 
 在创建的router对象中，如果不配置mode，就会使用默认的hash模式，该模式会将路径格式化为#！开头。
@@ -381,6 +383,39 @@ eg:
 
 
 ```
+
+16 scrollbehavior的使用
+
+在进行点击跳转事件的时候，有时候需要跳转到新页面的顶部，有时候需要在本页面的原位置，这个时候`scrollbehavior`就派上用场了。下面是我整理的示例代码--
+
+```bash
+
+在router -> index.js下面添加
+
+export default new Router({
+	mode: "history",
+	scrollBehavior:(to, from, savedPosition) => {
+	    if(savedPosition){
+	      return savedPosition;
+	    }else{
+	      const position = {};
+	      if(to.hash){
+		position.selector = to.hash;
+	      }
+	      if(to.matched.some(m => m.meta.scrollTop)){
+		position.x = 0
+		position.y = 0
+	      }
+	      return position;
+	    }
+	  },
+	  routes: [],
+	  ...
+});
+
+```
+
+⚠️参考链接[vue官网介绍](https://router.vuejs.org/zh-cn/api/options.html#scrollbehavior)和[vue-github介绍](https://github.com/vuejs/vue-router/blob/next/examples/scroll-behavior/app.js)
 
 
 - [有待补充]
