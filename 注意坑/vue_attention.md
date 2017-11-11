@@ -2,37 +2,37 @@
 
 - 目录
 
-- [使用vue.nextTick](#nextTick)
+1. [使用vue.nextTick](#nextTick)
 
-- [使用created钩子](#created)
+2. [使用created钩子](#created)
 
-- [使用mounted钩子](#mounted)
+3. [使用mounted钩子](#mounted)
 
-- [使用v-model](#vModel)
+4. [使用v-model](#vModel)
 
-- [@change的使用](#change)
+5. [@change的使用](#change)
 
-- [使用冒号:绑定属性](#colon)
+6. [使用冒号:绑定属性](#colon)
 
-- [父组件传递消息给子组件](#pTc)
+7. [父组件传递消息给子组件](#pTc)
 
-- [子组件向父组件传递消息](#cTp)
+8. [子组件向父组件传递消息](#cTp)
 
-- [watch使用](#watch)
+9. [watch使用](#watch)
 
-- [类名和style的使用](#classAndStyle)
+10. [类名和style的使用](#classAndStyle)
 
-- [style中scoped的讲解](#scoped)
+11. [style中scoped的讲解](#scoped)
 
-- [注意代码的简化](#sim)
+12. [注意代码的简化](#sim)
 
-- [调用vue中的action](#action)
+13. [调用vue中的action](#action)
 
-- [router-link添加点击事件注意](#router-link)
+14 [router-link添加点击事件注意](#router-link)
 
-- [history mode](#historyMode)
+15. [history mode](#historyMode)
 
-- [scrollbehavior]
+16. [scrollbehavior](#scrollbehavior)
 
 
 
@@ -384,6 +384,7 @@ eg:
 
 ```
 
+<a id="scrollbehavior"></a>
 16 scrollbehavior的使用
 
 在进行点击跳转事件的时候，有时候需要跳转到新页面的顶部，有时候需要在本页面的原位置，这个时候`scrollbehavior`就派上用场了。下面是我整理的示例代码--
