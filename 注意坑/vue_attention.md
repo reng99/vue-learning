@@ -34,10 +34,11 @@
 
 16. [scrollbehavior](#scrollbehavior)
 
+<hr/>
 
 
 <a id="nextTick"></a>
-1 [使用vue.nextTick](https://cn.vuejs.org/v2/api/#Vue-nextTick)
+1. [使用vue.nextTick](https://cn.vuejs.org/v2/api/#Vue-nextTick)
 
 在框架中和其他技术，比如`webpack`一起使用的时候，应当这样使用`this.$nextTick(function(){})`，这里的this就是vue对象`vm`
 使用这个钩子事件，能够保证在dom更新完之后对页面进行操作
@@ -50,19 +51,19 @@
 
 
 <a id="created"></a>
-2 [使用created钩子](https://cn.vuejs.org/v2/api/#created)
+2. [使用created钩子](https://cn.vuejs.org/v2/api/#created)
 
 这是创建完成的钩子事件，在这个钩子事件中实现对dom的操作，顾名思义，在这里是dom已经被创建出来了
 
 
 <a id="mounted"></a>
-3 [使用mounted钩子](https://cn.vuejs.org/v2/api/#mounted)
+3. [使用mounted钩子](https://cn.vuejs.org/v2/api/#mounted)
 
 这是挂载完成的钩子事件，在这个钩子事件中，可以使用在`index.html`中引入的各种资源，比如.css,.js。
 
 
 <a id="vModel"></a>
-4 [使用v-model](https://cn.vuejs.org/v2/guide/forms.html#v-model-与组件)
+4. [使用v-model](https://cn.vuejs.org/v2/guide/forms.html#v-model-与组件)
 
 在使用v-model的时候，需要在data中进行初始化，而这个v-model是对表单进行使用。
 ```bash
@@ -81,13 +82,13 @@ eg:
 ```
 
 <a id="change"></a>
-5 [@change的使用](https://cn.vuejs.org/v2/guide/migration.html#vm-watch-changed)
+5. [@change的使用](https://cn.vuejs.org/v2/guide/migration.html#vm-watch-changed)
 
 在使用事件的改变的时候，要使用@change,vue中是没有@select的，所以在使用select的标签的时候需要注意
 
 
 <a id="colon"></a>
-6 [使用冒号:绑定属性](https://cn.vuejs.org/v2/api/#v-bind)
+6. [使用冒号:绑定属性](https://cn.vuejs.org/v2/api/#v-bind)
 
 使用(:)绑定属性，这里是动态绑定的意思。
 ```bash
@@ -99,7 +100,7 @@ eg:
 
 
 <a id="pTc"></a>
-7 [父组件传递消息给子组件](#parentToChild)
+7. [父组件传递消息给子组件](#parentToChild)
 
 <a id="parentToChild"></a>
 这里给出个简单的例子
@@ -134,7 +135,7 @@ eg:
 
 
 <a id="cTp"></a>
-8 [子组件向父组件传递消息](#childToParent)
+8. [子组件向父组件传递消息](#childToParent)
 
 <a id="childToParent"></a>
 这里给出一个简单的例子：
@@ -180,14 +181,14 @@ eg:
 
 
 <a id="watch"></a>
-9 [watch使用](https://cn.vuejs.org/v2/guide/transitioning-state.html#状态动画-与-watcher)
+9. [watch使用](https://cn.vuejs.org/v2/guide/transitioning-state.html#状态动画-与-watcher)
 
 watch是用来观察属性的变化
 watch一般是用于观察计算属性产生的变化
 
 
 <a id="classAndStyle"></a>
-10 [类名和style的使用](https://cn.vuejs.org/v2/guide/class-and-style.html#main)
+10. [类名和style的使用](https://cn.vuejs.org/v2/guide/class-and-style.html#main)
 
 类名和style的使用一般用于动态改变样式，所以也要用到绑定属性。下面给出个简单的例子
 ```bash
@@ -220,7 +221,7 @@ eg:
 
 
 <a id="scoped"></a>
-11 [style中scoped的讲解](#style)
+11. [style中scoped的讲解](#style)
 
 <a id="style"></a>
 在style中般都会加上scoped来限制当前组将中样式名，防止发生样式名发生冲突。
@@ -252,7 +253,7 @@ eg:
 
 
 <a id="sim"></a>
-12 [注意代码的简化](#simple)
+12. [注意代码的简化](#simple)
 
 <a id="simple"></a>
 ```bash
@@ -299,7 +300,7 @@ eg：
 ```
 
 <a id="action"></a>
-13 [调用vue中的action]
+13. [调用vue中的action]
 
 使用vuex的时候，要调用action里面的数据，先是直接调用action的方法，然后再在state中获取经过处理的数据。
 
@@ -343,7 +344,7 @@ export default{
 ```
 
 <a id="router-link"></a>
-14 [router-link添加点击事件注意]
+14. [router-link添加点击事件注意]
 
 开发中，有时候需要在router-link中添加点击事件，可是单纯的添加`@click`事件是没有效果的，因为默认在router-link这里阻止添加的点击事件，要实现自己的点击事件的话，需要这样`@click.native=`,可[参考](https://cn.vuejs.org/v2/guide/components.html#counter-event-example)
 
@@ -364,7 +365,7 @@ export default{
 ```
 
 <a id="historyMode"></a>
-15 history模式
+15. history模式
 
 在创建的router对象中，如果不配置mode，就会使用默认的hash模式，该模式会将路径格式化为#！开头。
 
@@ -385,14 +386,15 @@ eg:
 ```
 
 <a id="scrollbehavior"></a>
-16 scrollbehavior的使用
+16. scrollbehavior的使用
 
 在进行点击跳转事件的时候，有时候需要跳转到新页面的顶部，有时候需要在本页面的原位置，这个时候`scrollbehavior`就派上用场了。下面是我整理的示例代码--
 
 ```bash
 
-在router -> index.js下面添加
+在router -> index.js下面添加    【推荐使用例子二】
 
+例子一：
 export default new Router({
 	mode: "history",
 	scrollBehavior:(to, from, savedPosition) => {
@@ -414,12 +416,39 @@ export default new Router({
 	  ...
 });
 
+
+例子二：
+const router = new Router({
+  mode: "history",
+  scrollBehavior:(to, from, savedPosition) => {
+    if(to.meta.scrollToTop&&(to.path!=from.path)){
+      return {x:0,y:0}
+    }
+    if (to.hash) {
+      return {
+        selector: to.hash
+      }
+    }
+  },
+  routes: [
+    {
+      path: '/',
+      component: Index,
+      children: [{path: '',name: 'characterData',component: CharacterData}]
+    },
+    {path:'/gameDet',name:'GameDet',component:GameDet, meta: { scrollToTop: true }},   // --> 留意 meta
+    ...
+  ]
+})
+
+//  更加详细的，请移步官网，见下
+
 ```
 
 ⚠️参考链接[vue官网介绍](https://router.vuejs.org/zh-cn/api/options.html#scrollbehavior)和[vue-github介绍](https://github.com/vuejs/vue-router/blob/next/examples/scroll-behavior/app.js)
 
 
-- [有待补充]
+17. [有待补充]
 
 
 
