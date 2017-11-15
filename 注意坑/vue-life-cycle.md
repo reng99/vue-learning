@@ -94,3 +94,5 @@ new Vue({
 ```
 
 本讲解是在结合官网的基础上进行的解析。[详细参考官网](https://cn.vuejs.org/v2/api/#beforeCreate)
+
+在理解的基础上，自己使用vue搭建公司项目（使用脚手架），地址[webapp](https://github.com/reng99/webapp)。后期完成会将代码上传。
