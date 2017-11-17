@@ -7,3 +7,5 @@
 - [vue的生命周期](./vue-life-cycle.md) 2017-11-14
 
 - [vue_scroller实现数据的下拉刷新和下拉加载](./vue_scroller_attention.md) 2017-11-16
+
+- [vue 和 sweetalert结合使用的心得](./vue_and_sweetalert.md) 2017-11-17
