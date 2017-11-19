@@ -2,7 +2,7 @@
 
 本篇文章是基于[sweetalert](https://sweetalert.js.org/)2.0版本和[vuejs](https://cn.vuejs.org/)2.0版本结合使用的讲解。
 
-**引入外部的html代码**
+### 1 .引入外部的html代码
 
 `sweetalert`2.0是不支持 html属性的，在2.0上面content中使用html,下面是一个集合vue的demo
 
