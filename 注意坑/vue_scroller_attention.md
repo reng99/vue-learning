@@ -145,3 +145,152 @@
 
 还有相关的两个方法`refresh`和`infinite`,在srcoller页面加载的时候，会默认进行infinite,所以我首先在infinite这里调用接口。
 
+> vue-scoller 在tab选项卡切换中的使用
+
+直接放出主要的demo
+
+```vue
+
+<template>
+  <div id="myMessageData">
+    <scroller :on-refresh="refresh" :on-infinite="infinite" ref="myscroller" style="padding-top:9.4rem;">
+      <li class="list-main" v-for="(item,index) in allOrder" :key="index">
+        <div class="list-content truncate">{{item.subject}}</div>
+        <div class="list-footer">
+          {{item.ctime}}
+          <div class="right">
+            查看详情
+            <i class="arrow-right"></i>
+          </div>
+        </div>
+      </li>
+    </scroller>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name : "myMessageData",
+  data () {
+      return {
+        msg: '',
+        state: '',
+        allOrder: [],
+        pageNow:1,
+        modalTitle:'',
+        modalContext:'',
+        modalBottom:'',
+        pageTotal:1,
+        jsonStatue:
+          {
+            ok:'1',
+            err:'-1',
+          }
+      }
+  },
+  created : function (){
+  },
+  mounted : function (){
+      let that = this;
+      that.state = that.$route.query.state;
+  },
+  computed : {
+    code() {
+        return this.$route.query.state;
+    }
+  },
+  watch : {
+    code(curVal) {
+        this.state = curVal;
+        this.allOrder = [];
+        this.pageNow = 1;
+        this.pageTotal = 1;
+        this.$refs.myscroller.finishInfinite(false);
+    }
+  },
+  methods : {
+      refresh: function (done) {
+        var self = this;
+        setTimeout(function(){
+        self.$getDataWithUrl('/user','/message/page/1.view',{"category":self.state},response=>{
+          self.allOrder = [];
+          self.pageTotal = response.data.context.pages;
+          if(response.data.code==self.jsonStatue.ok) {
+            self.allOrder = response.data.context.records;
+          }
+        },'get');
+          done()
+        }, 1500);
+      },
+      infinite: function (done) {
+        let that = this;
+        if (that.pageNow > that.pageTotal) {
+            done(true)
+          return;
+        } else {
+          that.$getDataWithUrl('/user','/message/page/'+that.pageNow+'.view',{"category":that.state},response=>{
+          that.pageTotal = response.data.context.pages;
+          that.pageNow++;
+          setTimeout(function(){
+            for(let i=0;i<response.data.context.records.length;i++){
+              that.allOrder.push(response.data.context.records[i]);
+            }
+            that.$refs.myscroller.resize();
+            done();
+          }, 1500);
+        },'get');
+
+        }
+
+
+      },
+  }
+}
+
+</script>
+
+<style lang="less" scoped>
+  #myMessageData{
+    max-width: 60rem;
+    margin:0 auto;
+    .list-main{
+      width:92%;
+      padding:.6rem 1%;
+      height:auto;
+      margin:0 auto;
+      background:#fff;
+      border-radius:.4rem;
+      margin-bottom:1rem;
+    }
+    .list-content{
+      color: #999;
+    }
+    .list-footer{
+      margin-top:.4rem;
+      border-top: .1rem solid #e5e5e5;
+      color: #999;
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: .3rem;
+      .right{
+        width: 5.4rem;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      i.arrow-right{
+        display:block;
+        width:1rem;
+        height:1rem;
+        background: url('../../../static/icons/svg/icon-leftright_gray.svg') center center no-repeat;
+        background-size: 90%;
+      }
+    }
+  }
+</style>
+
+```
+
