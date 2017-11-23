@@ -27,7 +27,8 @@
           </div>
         </div>
       </div>
-    <scroller style="top: 4.4rem;"
+      <!--注意⚠️ 下面scroller组件内是padding-top,不是top-->
+    <scroller style="padding-top: 4.4rem;"  
     :on-refresh="refresh"
     :on-infinite="infinite"
     ref="myscroller">
