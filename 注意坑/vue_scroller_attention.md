@@ -128,8 +128,8 @@
 重点是代码里面scroller部分
 
 ```vue
-
-    <scroller style="top: 4.4rem;"
+    <!--注意⚠️ 下面scroller组件内是padding-top,不是top-->
+    <scroller style="paddig-top: 4.4rem;"
     :on-refresh="refresh"
     :on-infinite="infinite"
     ref="myscroller">
