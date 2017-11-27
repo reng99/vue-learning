@@ -183,6 +183,37 @@ eg:
 <a id="watch"></a>
 9. [watch使用](https://cn.vuejs.org/v2/guide/transitioning-state.html#状态动画-与-watcher)
 
+```
+<template>
+  <div id="inputCell">
+    <input :placeholder="placeholderMsg" type="text"  v-model="inputMsg"/>
+  </div>
+</template>
+<script>
+  export default {
+    name: 'inputCell',
+    data() {
+      return {
+        inputMsg: '',
+      }
+    },
+    props:{
+      placeholderMsg:{
+          type: String,
+          default: '请输入相关内容'
+        }
+    },
+    watch:{
+      inputMsg: function (newVal,oldVal){
+        console.log(newVal);
+      }
+    }
+  }
+  </script>
+  ...
+
+```
+
 watch是用来观察属性的变化
 watch一般是用于观察计算属性产生的变化
 
