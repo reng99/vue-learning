@@ -11,3 +11,5 @@
 - [vue 和 sweetalert结合使用的心得](./vue_and_sweetalert.md) 2017-11-17
 
 - [404页面](./vue_p404.md) 2017-12-05
+
+- [vuex的学习的要点](./vuex_learning.md) 2017-12-29
