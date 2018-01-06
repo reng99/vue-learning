@@ -13,3 +13,5 @@
 - [404页面](./vue_p404.md) 2017-12-05
 
 - [vuex的学习的要点](./vuex_learning.md) 2017-12-29
+
+- [组件挂载到组件的元素中](./component_to_component.md) 2018-01-06
