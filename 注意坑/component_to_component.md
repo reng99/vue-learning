@@ -20,6 +20,8 @@ Test.vue
 </style>
 ```
 
+Another.vue
+
 ```javascript
 import Test from '/path/to/Test.vue'
 export default {
