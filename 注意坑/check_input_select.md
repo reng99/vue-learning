@@ -82,3 +82,23 @@ CSS
 // nothing
 ```
 
+### 单个input的checkbox的选中
+
+```html
+<template>
+    <label for="agreement" class="agreement">
+        <input type="checkbox" id="agreement" v-model="checkFlag"> 我已经阅读了相关协议
+        <span class="false_choose v-show="!checkFlag"">请阅读相关协议并且勾选</span>
+    </label>
+</template>
+```
+
+```javascript
+<script>
+    export default {
+        data () {
+            checkFlag: true
+        }
+    }
+</script>
+```
